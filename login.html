@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centered Form - Bootstrap</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex justify-content-center align-items-center vh-100">
+<!-- <% include partials/navbar %>   -->
+<div class="card shadow p-4" style="width: 400px; height: 400px">
+<div class="container-sm my-5">
+ 
+  <h2>Login</h2>
+  <form action="http://localhost:3000/login" method="POST">
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control" name="email" required />
+    </div>
+    <div class="mb-3">
+      <label>Password</label>
+      <input type="password" class="form-control" name="password" required />
+    </div>
+      <div class="d-grid gap-2">
+    <div class="mb-3"></div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+  </div>
+  </form>
+   <!-- <%- include("partials/footer") %> -->
+</div>

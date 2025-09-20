@@ -1,0 +1,23 @@
+.hero {
+      position: relative;
+      height: 350px;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: 
+        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),   /* dark overlay */
+        url('b1.jpg') center/cover no-repeat;
+    }
+.cta-section {
+    background-color: #002b5c;
+}
+.custom-container {
+        width: 400px;   /* fixed width */
+        height: 150px;  /* fixed height */
+        background-color: #f8f9fa;
+        border: 2px solid #333;
+        border-radius: 8px;
+        margin-left: 700px;
+    }
