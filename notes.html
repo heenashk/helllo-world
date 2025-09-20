@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Science Study Hub</title>
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+    header.jumbotron {
+      background-color: #f8f9fa;
+      padding: 3rem 1rem;
+      border-radius: 0.5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- <%- include("partials/navbar") %>   -->
+
+  <div class="container my-5">
+    <h2 class="mb-4">Available Study Material</h2>
+
+     <!-- Static example cards (optional, you can remove if using dynamic list)  -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Python Basics</h5>
+            <p class="card-text">Download notes and exercises on Python for Data Science.</p>
+            <a href="/materials/DB-I-unit2.pdf" download class="btn btn-primary">📘 Download PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dynamic materials list -->
+    <ul id="materials-list" class="list-group mt-4"></ul>
+<!-- 
+    <%- include("partials/footer") %> -->
+  <!-- </div> -->
+
+   <script>
+    async function loadMaterials() {
+      try {
+        const res = await fetch("/files");
+        if (res.status === 401) {
+          alert("Please login to access study materials.");
+          window.location.href = "/login"; 
+          return;
+        }
+        const files = await res.json();
+        const list = document.getElementById("materials-list");
+        list.innerHTML = ""; // clear existing
+        files.forEach(file => {
+          const li = document.createElement("li");
+          li.className = "list-group-item";
+          li.innerHTML = `<a href="/download/${file._id}">📥 ${file.originalname}</a>`;
+          list.appendChild(li);
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    loadMaterials();
+  </script>  
